@@ -1,5 +1,5 @@
-from services.llm_client import chat_completion_json, LLMError
-from models.schemas import ResumeRewrite
+from backend.services.llm_client import chat_completion_json, LLMError
+from backend.models.schemas import ResumeRewrite
 import asyncio
 
 

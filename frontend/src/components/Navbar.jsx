@@ -45,7 +45,7 @@ export default function Navbar({ currentView, onNavigate, user, onLogin, onLogou
               <Target size={18} className="text-dark-900" />
             </div>
             <span className="font-heading font-bold text-base text-white tracking-tight">
-              SkillGap
+              Bi-Frost
             </span>
           </motion.div>
 

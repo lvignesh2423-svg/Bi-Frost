@@ -1,5 +1,5 @@
-from services.llm_client import chat_completion_json
-from models.schemas import (
+from backend.services.llm_client import chat_completion_json
+from backend.models.schemas import (
     ResumeData, SkillGap, SkillCategory, SkillLevel,
     ExtractedSkill, AnalysisResult, LearningStep, RoadmapNode
 )

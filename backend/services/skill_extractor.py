@@ -1,6 +1,6 @@
 import json
-from services.llm_client import chat_completion_json
-from models.schemas import ExtractedSkill, SkillCategory, SkillLevel, ResumeData
+from backend.services.llm_client import chat_completion_json
+from backend.models.schemas import ExtractedSkill, SkillCategory, SkillLevel, ResumeData
 import os
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")

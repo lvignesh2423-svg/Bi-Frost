@@ -12,7 +12,7 @@ export default function Footer() {
               <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-mm-green">
                 <Target size={18} className="text-dark-900" />
               </div>
-              <span className="font-heading font-bold text-lg text-white">SkillGap</span>
+              <span className="font-heading font-bold text-lg text-white">Bi-Frost</span>
             </div>
             <p className="text-zinc-500 text-sm leading-relaxed max-w-sm mb-6">
               AI-powered career intelligence platform helping professionals discover skill gaps, build learning roadmaps, and optimize their resumes.
@@ -58,7 +58,7 @@ export default function Footer() {
 
         <div className="border-t border-white/[0.04] mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-zinc-600">
-            © 2026 SkillGap AI. All rights reserved.
+            © 2026 Bi-Frost. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-xs text-zinc-600 hover:text-white transition-colors">Privacy</a>

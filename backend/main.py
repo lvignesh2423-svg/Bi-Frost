@@ -533,8 +533,8 @@ async def mentor_chat(request: ChatRequest):
 
     messages.append({"role": "user", "content": request.message})
 
-    from services.llm_client import client
-    from config import LLM_MODEL
+    from backend.services.llm_client import client
+    from backend.config import LLM_MODEL
 
     try:
         response = await client.chat.completions.create(

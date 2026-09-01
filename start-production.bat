@@ -1,6 +1,6 @@
 @echo off
 echo ==========================================
-echo   AI Skill Gap Analyzer - Production Build
+echo   Bi-Frost - Production Build
 echo ==========================================
 echo.
 
@@ -11,7 +11,6 @@ cd ..
 
 echo.
 echo Starting Production Server on port 8001...
-cd /d %~dp0backend
-..\venv\Scripts\python.exe -m uvicorn main:app --host 0.0.0.0 --port 8001
+venv\Scripts\python.exe -m uvicorn backend.main:app --host 0.0.0.0 --port 8001
 
 pause
