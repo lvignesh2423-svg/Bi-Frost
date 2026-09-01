@@ -99,9 +99,24 @@ The following environment variables can be set in `.env`:
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `OPENROUTER_API_KEY` | ✅ Yes | - | Your OpenRouter API key |
-| `DATABASE_URL` | ❌ No | `sqlite:///./skill_gap_analyzer.db` | Database connection string |
+| `DATABASE_URL` | ❌ No | `sqlite:////app/data/skill_gap_analyzer.db` | Database connection string (stored in the persistent `bi-frost-data` Docker volume) |
 | `LLM_MODEL` | ❌ No | `meta-llama/llama-3.1-70b-instruct` | LLM model to use |
-| `ENV` | ❌ No | `development` | Environment mode |
+| `OPENROUTER_BASE_URL` | ❌ No | `https://openrouter.ai/api/v1` | OpenRouter API base URL |
+| `JWT_SECRET` | ❌ No | built-in dev fallback | Secret used to sign auth tokens — set a strong random value in production |
+
+### Using Groq (or any OpenAI-compatible provider) instead of OpenRouter
+
+The LLM client uses the OpenAI SDK against a configurable base URL, so any
+OpenAI-compatible provider works without code changes. For example, with a
+Groq key (`gsk_...`), put this in `.env`:
+
+```env
+OPENROUTER_API_KEY=gsk_your_groq_key
+OPENROUTER_BASE_URL=https://api.groq.com/openai/v1
+LLM_MODEL=openai/gpt-oss-120b
+```
+
+Then run `docker compose up -d` to recreate the container with the new settings.
 
 ## Docker Compose Features
 
@@ -109,8 +124,8 @@ The `docker-compose.yml` includes:
 
 - **Port mapping**: 8001:8001 (accessible locally)
 - **Environment variables**: Auto-loaded from `.env`
-- **Health checks**: Monitors container health every 30 seconds
-- **Volume mounts**: For development (optional)
+- **Health checks**: Monitors `/api/health` every 30 seconds using the Python standard library (no extra dependencies)
+- **Persistent storage**: Named volume `bi-frost-data` keeps the SQLite database across container rebuilds
 - **Auto-restart**: Restarts container if it crashes
 
 ## Deployment to Cloud (Render, Railway, etc.)

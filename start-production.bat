@@ -11,6 +11,8 @@ cd ..
 
 echo.
 echo Starting Production Server on port 8001...
+cd /d %~dp0
+
 venv\Scripts\python.exe -m uvicorn backend.main:app --host 0.0.0.0 --port 8001
 
 pause
