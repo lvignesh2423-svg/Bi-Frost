@@ -8,18 +8,18 @@ import json
 import os
 import time
 
-from config import FRONTEND_DIR
-from models.schemas import (
+from backend.config import FRONTEND_DIR
+from backend.models.schemas import (
     AnalyzeRequest, ChatRequest, ChatMessage, ProgressUpdate
 )
-from models.database import init_db, get_db, AnalysisHistory
-from models.user import User, UserAnalysis
-from services.resume_parser import extract_text_from_uploaded
-from services.skill_extractor import extract_skills_from_resume
-from services.job_matcher import analyze_skill_gaps, generate_learning_path, generate_roadmap
-from services.resume_rewriter import rewrite_resume
-from services.llm_client import chat_completion, LLMError
-from services.auth import (
+from backend.models.database import init_db, get_db, AnalysisHistory
+from backend.models.user import User, UserAnalysis
+from backend.services.resume_parser import extract_text_from_uploaded
+from backend.services.skill_extractor import extract_skills_from_resume
+from backend.services.job_matcher import analyze_skill_gaps, generate_learning_path, generate_roadmap
+from backend.services.resume_rewriter import rewrite_resume
+from backend.services.llm_client import chat_completion, LLMError
+from backend.services.auth import (
     hash_password, verify_password, create_access_token,
     get_current_user, get_optional_user
 )
@@ -450,13 +450,13 @@ async def generate_resume(request: AnalyzeRequest):
     </div>
   </div>
 
-  {f'<div class="section"><h2>Experience</h2><ul>\n        {exp_html}\n      </ul></div>' if exp_html else ''}
+  {'<div class="section"><h2>Experience</h2><ul>' + exp_html + '</ul></div>' if exp_html else ''}
 
-  {f'<div class="section"><h2>Education</h2><ul>\n        {education_html}\n      </ul></div>' if education_html else ''}
+  {'<div class="section"><h2>Education</h2><ul>' + education_html + '</ul></div>' if education_html else ''}
 
-  {f'<div class="section"><h2>Certifications</h2><ul>\n        {cert_html}\n      </ul></div>' if cert_html else ''}
+  {'<div class="section"><h2>Certifications</h2><ul>' + cert_html + '</ul></div>' if cert_html else ''}
 
-  {f'<div class="footer-note">Skills highlighted in green were added through your learning path.</div>' if new_skills_set else ''}
+  {'<div class="footer-note">Skills highlighted in green were added through your learning path.</div>' if new_skills_set else ''}
 </body></html>"""
 
     return {"html": html, "skills_count": len(all_skills), "new_skills": list(new_skills_set)}
