@@ -13,9 +13,9 @@ export default function ReadinessGauge({ score, size = 180 }) {
   }, [score])
 
   const getColor = (s) => {
-    if (s >= 80) return { stroke: '#00d091', text: 'text-accent-green', label: 'Excellent' }
-    if (s >= 60) return { stroke: '#037dd6', text: 'text-accent-blue', label: 'Good' }
-    if (s >= 40) return { stroke: '#f59e0b', text: 'text-yellow-400', label: 'Fair' }
+    if (s >= 80) return { stroke: '#baf24a', text: 'text-mm-green', label: 'Excellent' }
+    if (s >= 60) return { stroke: '#89b0ff', text: 'text-mm-blue', label: 'Good' }
+    if (s >= 40) return { stroke: '#f8893a', text: 'text-mm-orange', label: 'Fair' }
     return { stroke: '#ef4444', text: 'text-red-400', label: 'Needs Work' }
   }
 

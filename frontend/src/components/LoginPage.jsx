@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { User, Lock, Eye, EyeOff, ArrowRight, Loader2 } from 'lucide-react'
+import { User, Lock, Eye, EyeOff, ArrowRight, Loader2, Target } from 'lucide-react'
 
 export default function LoginPage({ onLogin, onSwitchToRegister }) {
   const [username, setUsername] = useState('')
@@ -29,17 +29,27 @@ export default function LoginPage({ onLogin, onSwitchToRegister }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-mesh px-4">
+      <div className="noise-overlay" />
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-md"
+        transition={{ duration: 0.6 }}
+        className="w-full max-w-md relative z-10"
       >
         <div className="text-center mb-8">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.1, type: 'spring', stiffness: 120 }}
+            className="w-14 h-14 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-mm-green"
+          >
+            <Target size={24} className="text-dark-900" />
+          </motion.div>
           <h1 className="text-3xl font-heading font-bold text-white mb-2">Welcome Back</h1>
           <p className="text-zinc-400">Sign in to continue your career journey</p>
         </div>
 
-        <div className="glass-card p-8">
+        <div className="bento-card p-8">
           <form onSubmit={handleSubmit} className="space-y-5">
             {error && (
               <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
@@ -99,7 +109,7 @@ export default function LoginPage({ onLogin, onSwitchToRegister }) {
           <div className="mt-6 text-center">
             <p className="text-sm text-zinc-400">
               Don't have an account?{' '}
-              <button onClick={onSwitchToRegister} className="text-accent-blue hover:underline font-medium">
+              <button onClick={onSwitchToRegister} className="text-mm-green hover:underline font-medium">
                 Create one
               </button>
             </p>

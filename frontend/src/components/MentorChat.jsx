@@ -15,7 +15,7 @@ function renderMarkdown(text) {
       elements.push(
         <ul key={`ul-${elements.length}`} className="list-disc pl-5 space-y-1 my-2">
           {listItems.map((item, i) => (
-            <li key={i} className="text-sm text-gray-200">{renderInline(item)}</li>
+            <li key={i} className="text-sm text-zinc-200">{renderInline(item)}</li>
           ))}
         </ul>
       )
@@ -28,7 +28,7 @@ function renderMarkdown(text) {
     return (
       <ol className="list-decimal pl-5 space-y-1 my-2">
         {items.map((item, i) => (
-          <li key={i} className="text-sm text-gray-200">{renderInline(item)}</li>
+          <li key={i} className="text-sm text-zinc-200">{renderInline(item)}</li>
         ))}
       </ol>
     )
@@ -56,7 +56,7 @@ function renderMarkdown(text) {
         const idx = remaining.indexOf(match[0])
         if (idx > 0) parts.push(<span key={key++}>{remaining.slice(0, idx)}</span>)
         parts.push(
-          <code key={key++} className="px-1.5 py-0.5 rounded bg-dark-800 text-neon-blue text-xs font-mono">
+          <code key={key++} className="px-1.5 py-0.5 rounded bg-dark-800 text-mm-blue text-xs font-mono">
             {match[1]}
           </code>
         )
@@ -93,7 +93,7 @@ function renderMarkdown(text) {
         numberedBuffer = []
       }
       elements.push(
-        <h3 key={elements.length} className="text-sm font-bold text-neon-blue mt-3 mb-1">
+        <h3 key={elements.length} className="text-sm font-bold text-mm-blue mt-3 mb-1">
           {trimmed.slice(4)}
         </h3>
       )
@@ -131,7 +131,7 @@ function renderMarkdown(text) {
 
     flushList()
     elements.push(
-      <p key={elements.length} className="text-sm text-gray-200 leading-relaxed my-1">
+      <p key={elements.length} className="text-sm text-zinc-200 leading-relaxed my-1">
         {renderInline(trimmed)}
       </p>
     )
@@ -195,12 +195,9 @@ export default function MentorChat({ analysisContext }) {
   }
 
   return (
-    <div className="glass-card flex flex-col h-[600px]">
+    <div className="bento-card flex flex-col h-[600px]">
       <div className="p-4 border-b border-white/[0.04] flex items-center gap-3">
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center"
-          style={{ background: 'linear-gradient(135deg, #037dd6, #7c3aed)' }}
-        >
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-mm-blue to-mm-purple flex items-center justify-center">
           <Bot size={18} className="text-white" />
         </div>
         <div>
@@ -220,18 +217,18 @@ export default function MentorChat({ analysisContext }) {
             >
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                 msg.role === 'user'
-                  ? 'bg-accent-blue/15'
-                  : 'bg-gradient-to-br from-accent-blue to-accent-purple'
+                  ? 'bg-mm-green/15'
+                  : 'bg-gradient-to-br from-mm-blue to-mm-purple'
               }`}>
                 {msg.role === 'user' ? (
-                  <User size={14} className="text-accent-blue" />
+                  <User size={14} className="text-mm-green" />
                 ) : (
                   <Bot size={14} className="text-white" />
                 )}
               </div>
               <div className={`max-w-[85%] p-3 rounded-xl ${
                 msg.role === 'user'
-                  ? 'bg-accent-blue/10 border border-accent-blue/15 text-white'
+                  ? 'bg-mm-green/10 border border-mm-green/15 text-white'
                   : 'bg-dark-600 border border-white/[0.04] text-zinc-200'
               }`}>
                 {msg.role === 'assistant' ? (
@@ -250,11 +247,11 @@ export default function MentorChat({ analysisContext }) {
             animate={{ opacity: 1 }}
             className="flex gap-3"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-mm-blue to-mm-purple flex items-center justify-center">
               <Bot size={14} className="text-white" />
             </div>
             <div className="p-3 rounded-xl bg-dark-600 border border-white/[0.04]">
-              <Loader2 size={16} className="animate-spin text-accent-blue" />
+              <Loader2 size={16} className="animate-spin text-mm-blue" />
             </div>
           </motion.div>
         )}
@@ -267,7 +264,7 @@ export default function MentorChat({ analysisContext }) {
             <button
               key={i}
               onClick={() => sendMessage(s)}
-              className="text-xs px-3 py-1.5 rounded-full bg-dark-600 border border-white/[0.06] text-zinc-300 hover:border-accent-blue/30 hover:text-accent-blue transition-all"
+              className="text-xs px-3 py-1.5 rounded-full bg-dark-600 border border-white/[0.06] text-zinc-300 hover:border-mm-blue/30 hover:text-mm-blue transition-all"
             >
               <Lightbulb size={10} className="inline mr-1" />
               {s}

@@ -43,11 +43,11 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="glass-card p-6"
+        className="bento-card"
       >
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-10 h-10 rounded-xl bg-accent-purple/10 flex items-center justify-center">
-            <Target size={18} className="text-accent-purple" />
+          <div className="w-10 h-10 rounded-xl bg-mm-purple/10 flex items-center justify-center">
+            <Target size={18} className="text-mm-purple" />
           </div>
           <div>
             <h2 className="font-heading font-semibold text-white text-base">Target Job</h2>
@@ -70,7 +70,7 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
 
           <button
             onClick={() => setShowJDInput(!showJDInput)}
-            className="text-sm text-accent-blue hover:text-accent-blue/80 flex items-center gap-1 transition-colors"
+            className="text-sm text-mm-blue hover:text-mm-blue/80 flex items-center gap-1 transition-colors"
           >
             {showJDInput ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
             {showJDInput ? 'Hide' : 'Add'} job description (optional)
@@ -121,7 +121,7 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.08 }}
-          className="glass-card p-6"
+          className="bento-card"
         >
           <h3 className="font-heading font-semibold text-white text-base mb-4">
             Your Skills ({resumeData.skills.length})
@@ -137,7 +137,7 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
               >
                 {s.name}
                 <span className="ml-1.5 text-zinc-600">·</span>
-                <span className="ml-1 text-accent-blue">{s.level}</span>
+                <span className="ml-1 text-mm-blue">{s.level}</span>
               </motion.span>
             ))}
           </div>
@@ -151,24 +151,24 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
           className="space-y-6"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="glass-card p-6 flex flex-col items-center justify-center">
+            <div className="bento-card flex flex-col items-center justify-center">
               <ReadinessGauge score={analysis.readiness_score} />
             </div>
-            <div className="glass-card p-6">
+            <div className="bento-card">
               <h3 className="font-heading font-semibold text-white text-base mb-3">Summary</h3>
               <p className="text-zinc-300 text-sm leading-relaxed">{analysis.summary}</p>
               <div className="mt-4 grid grid-cols-2 gap-3">
-                <div className="text-center p-3 rounded-xl bg-dark-600/50">
-                  <p className="text-2xl font-bold text-accent-green">{analysis.skills_matched}</p>
+                <div className="text-center p-3 rounded-xl bg-mm-green/5 border border-mm-green/10">
+                  <p className="text-2xl font-bold text-mm-green">{analysis.skills_matched}</p>
                   <p className="text-xs text-zinc-500">Matched</p>
                 </div>
-                <div className="text-center p-3 rounded-xl bg-dark-600/50">
+                <div className="text-center p-3 rounded-xl bg-red-500/5 border border-red-500/10">
                   <p className="text-2xl font-bold text-red-400">{analysis.skills_missing}</p>
                   <p className="text-xs text-zinc-500">Missing</p>
                 </div>
               </div>
             </div>
-            <div className="glass-card p-6">
+            <div className="bento-card">
               <h3 className="font-heading font-semibold text-white text-base mb-3">Timeline</h3>
               <div className="text-center">
                 <p className="text-3xl font-bold gradient-text">{analysis.time_to_hire_weeks}</p>
@@ -178,7 +178,7 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
               <div className="mt-4 space-y-2">
                 {analysis.matched_skills.slice(0, 3).map((s, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent-green" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-mm-green" />
                     <span className="text-zinc-300">{s.name}</span>
                     <span className="text-zinc-600 ml-auto">{s.level}</span>
                   </div>
@@ -191,11 +191,11 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="glass-card p-6"
+              className="bento-card"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-accent-blue/10 flex items-center justify-center">
-                  <Briefcase size={18} className="text-accent-blue" />
+                <div className="w-10 h-10 rounded-xl bg-mm-blue/10 flex items-center justify-center">
+                  <Briefcase size={18} className="text-mm-blue" />
                 </div>
                 <div>
                   <h3 className="font-heading font-semibold text-white text-base">Related Jobs</h3>
@@ -204,7 +204,7 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
               </div>
               <div className="flex flex-wrap gap-2">
                 {analysis.related_jobs.map((job, i) => (
-                  <span key={i} className="text-sm px-4 py-2 rounded-xl bg-dark-600 border border-white/[0.06] text-zinc-200 hover:border-accent-blue/30 transition-colors cursor-default">
+                  <span key={i} className="text-sm px-4 py-2 rounded-xl bg-dark-600 border border-white/[0.06] text-zinc-200 hover:border-mm-blue/30 transition-colors cursor-default">
                     {job}
                   </span>
                 ))}
@@ -212,7 +212,7 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
             </motion.div>
           )}
 
-          <div className="glass-card p-6">
+          <div className="bento-card">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-heading font-semibold text-white text-base">
                 Skill Gaps ({analysis.skill_gaps.length})
@@ -226,7 +226,7 @@ export default function AnalysisPanel({ resumeData, onAnalysisComplete }) {
             {analysis.skill_gaps.length > 6 && (
               <button
                 onClick={() => setShowAllGaps(!showAllGaps)}
-                className="mt-4 text-sm text-accent-blue hover:text-accent-blue/80 transition-colors"
+                className="mt-4 text-sm text-mm-blue hover:text-mm-blue/80 transition-colors"
               >
                 {showAllGaps ? 'Show less' : `Show all ${analysis.skill_gaps.length} gaps`}
               </button>

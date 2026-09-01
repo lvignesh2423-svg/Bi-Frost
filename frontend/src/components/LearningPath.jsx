@@ -4,9 +4,9 @@ import { BookOpen, Clock, Code2, ChevronRight, CheckCircle2, Circle, Loader2 } f
 export default function LearningPath({ steps, completedSkills, onToggleSkill, updating }) {
   if (!steps || steps.length === 0) {
     return (
-      <div className="glass-card p-12 text-center">
-        <BookOpen size={48} className="mx-auto mb-4 text-gray-600" />
-        <p className="text-gray-400">Run an analysis to generate your learning path</p>
+      <div className="bento-card p-12 text-center">
+        <BookOpen size={48} className="mx-auto mb-4 text-zinc-600" />
+        <p className="text-zinc-400">Run an analysis to generate your learning path</p>
       </div>
     )
   }
@@ -26,25 +26,25 @@ export default function LearningPath({ steps, completedSkills, onToggleSkill, up
   }
 
   return (
-    <div className="glass-card p-6">
+    <div className="bento-card p-6">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-neon-green/10 flex items-center justify-center">
-            <BookOpen size={20} className="text-neon-green" />
+          <div className="w-10 h-10 rounded-xl bg-mm-green/10 flex items-center justify-center">
+            <BookOpen size={20} className="text-mm-green" />
           </div>
           <div>
             <h2 className="font-heading font-bold text-white">Learning Path</h2>
-            <p className="text-sm text-gray-400">Click steps to mark as complete</p>
+            <p className="text-sm text-zinc-400">Click steps to mark as complete</p>
           </div>
         </div>
         <div className="text-right">
           <p className="text-lg font-bold gradient-text">{totalHours}h</p>
-          <p className="text-xs text-gray-500">total estimated</p>
+          <p className="text-xs text-zinc-500">total estimated</p>
         </div>
       </div>
 
       <div className="relative">
-        <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue via-accent-purple to-accent-green" />
+        <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-mm-blue via-mm-purple to-mm-green" />
 
         <div className="space-y-6">
           {steps.map((step, i) => {
@@ -65,41 +65,41 @@ export default function LearningPath({ steps, completedSkills, onToggleSkill, up
                     skills.forEach(s => onToggleSkill && onToggleSkill(s, !completed.includes(s)))
                   }}
                   className="absolute left-2.5 w-6 h-6 rounded-full bg-dark-900 border-2 flex items-center justify-center z-10 transition-colors cursor-pointer hover:scale-110"
-                  style={{ borderColor: allDone ? '#00d091' : someDone ? '#037dd6' : '#374151' }}
+                  style={{ borderColor: allDone ? '#baf24a' : someDone ? '#89b0ff' : '#374151' }}
                 >
                   {allDone ? (
-                    <CheckCircle2 size={14} className="text-accent-green" />
+                    <CheckCircle2 size={14} className="text-mm-green" />
                   ) : (
-                    <span className="text-xs font-bold" style={{ color: someDone ? '#037dd6' : '#6b7280' }}>
+                    <span className="text-xs font-bold" style={{ color: someDone ? '#89b0ff' : '#6b7280' }}>
                       {step.step_number}
                     </span>
                   )}
                 </button>
 
-                <div className={`glass-card p-5 transition-all duration-300 ${
-                  allDone ? 'border-accent-green/30 bg-accent-green/5' : 'hover:border-accent-blue/30'
+                <div className={`bento-card p-5 transition-all duration-300 ${
+                  allDone ? 'border-mm-green/30 bg-mm-green/5' : 'hover:border-mm-blue/30'
                 }`}>
                   <div className="flex items-start justify-between mb-2">
-                    <h4 className={`font-heading font-semibold ${allDone ? 'text-accent-green line-through' : 'text-white'}`}>
+                    <h4 className={`font-heading font-semibold ${allDone ? 'text-mm-green line-through' : 'text-white'}`}>
                       {step.title}
                     </h4>
-                    <span className="flex items-center gap-1 text-xs text-gray-400 flex-shrink-0 ml-2">
+                    <span className="flex items-center gap-1 text-xs text-zinc-400 flex-shrink-0 ml-2">
                       <Clock size={12} />
                       {step.estimated_hours}h
                     </span>
                   </div>
 
-                  <p className="text-sm text-gray-300 mb-3">{step.description}</p>
+                  <p className="text-sm text-zinc-300 mb-3">{step.description}</p>
 
                   {step.resources && step.resources.length > 0 && (
                     <div className="mb-3">
-                      <p className="text-xs text-gray-500 mb-1.5">Resources:</p>
+                      <p className="text-xs text-zinc-500 mb-1.5">Resources:</p>
                       <div className="space-y-1">
                         {step.resources.map((r, ri) => (
                           <div key={ri} className="flex items-center gap-2 text-xs">
-                            <ChevronRight size={10} className="text-accent-blue" />
-                            <span className="text-gray-300">{r.name}</span>
-                            <span className="text-gray-500 capitalize">({r.type})</span>
+                            <ChevronRight size={10} className="text-mm-blue" />
+                            <span className="text-zinc-300">{r.name}</span>
+                            <span className="text-zinc-500 capitalize">({r.type})</span>
                           </div>
                         ))}
                       </div>
@@ -108,12 +108,12 @@ export default function LearningPath({ steps, completedSkills, onToggleSkill, up
 
                   {step.projects && step.projects.length > 0 && (
                     <div className="bg-dark-800/50 rounded-lg p-3">
-                      <p className="text-xs text-gray-500 mb-1.5 flex items-center gap-1">
+                      <p className="text-xs text-zinc-500 mb-1.5 flex items-center gap-1">
                         <Code2 size={10} />
                         Practice Projects:
                       </p>
                       {step.projects.map((p, pi) => (
-                        <p key={pi} className="text-xs text-accent-blue/80">→ {p}</p>
+                        <p key={pi} className="text-xs text-mm-blue/80">→ {p}</p>
                       ))}
                     </div>
                   )}
@@ -130,12 +130,12 @@ export default function LearningPath({ steps, completedSkills, onToggleSkill, up
                           }}
                           className={`text-xs px-3 py-1.5 rounded-full border-2 font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
                             done
-                              ? 'bg-accent-green/20 border-accent-green text-accent-green shadow-[0_0_12px_rgba(0,208,145,0.3)]'
-                              : 'bg-dark-800 border-white/20 text-zinc-300 hover:border-accent-blue/50 hover:text-accent-blue'
+                              ? 'bg-mm-green/20 border-mm-green text-mm-green shadow-[0_0_12px_rgba(186,242,74,0.3)]'
+                              : 'bg-dark-800 border-white/20 text-zinc-300 hover:border-mm-blue/50 hover:text-mm-blue'
                           }`}
                         >
                           {done ? (
-                            <CheckCircle2 size={12} className="text-accent-green" />
+                            <CheckCircle2 size={12} className="text-mm-green" />
                           ) : (
                             <Circle size={12} className="text-zinc-500" />
                           )}

@@ -5,9 +5,9 @@ export default function SkillCard({ skill, index }) {
   const isMissing = skill.is_missing
   const levelColors = {
     beginner: 'text-yellow-400 bg-yellow-400/10',
-    intermediate: 'text-accent-blue bg-accent-blue/10',
-    advanced: 'text-accent-green bg-accent-green/10',
-    expert: 'text-accent-purple bg-accent-purple/10',
+    intermediate: 'text-mm-blue bg-mm-blue/10',
+    advanced: 'text-mm-green bg-mm-green/10',
+    expert: 'text-mm-purple bg-mm-purple/10',
   }
 
   const importanceColors = {
@@ -21,9 +21,9 @@ export default function SkillCard({ skill, index }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.04 }}
-      whileHover={{ y: -2 }}
-      className={`glass-card p-4 transition-all duration-200 ${
-        isMissing ? 'border-red-500/10 hover:border-red-500/25' : 'border-accent-green/10 hover:border-accent-green/25'
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      className={`bento-card p-5 transition-all duration-300 ${
+        isMissing ? 'hover:border-red-500/25' : 'hover:border-mm-green/25'
       }`}
     >
       <div className="flex items-start justify-between mb-3">
@@ -31,7 +31,7 @@ export default function SkillCard({ skill, index }) {
           {isMissing ? (
             <AlertTriangle size={14} className="text-red-400 flex-shrink-0" />
           ) : (
-            <CheckCircle2 size={14} className="text-accent-green flex-shrink-0" />
+            <CheckCircle2 size={14} className="text-mm-green flex-shrink-0" />
           )}
           <h4 className="font-heading font-semibold text-white text-sm">{skill.skill_name}</h4>
         </div>

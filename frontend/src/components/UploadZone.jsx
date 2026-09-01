@@ -57,9 +57,9 @@ export default function UploadZone({ onResumeUploaded }) {
             onDrop={onDrop}
             onDragOver={onDragOver}
             onDragLeave={onDragLeave}
-            className={`relative glass-card p-12 text-center cursor-pointer transition-all duration-200 ${
+            className={`relative bento-card p-12 text-center cursor-pointer transition-all duration-300 ${
               dragOver
-                ? 'border-accent-blue/40 bg-accent-blue/[0.03]'
+                ? 'border-mm-green/40 bg-mm-green/[0.03]'
                 : 'hover:border-white/[0.12]'
             }`}
             onClick={() => document.getElementById('file-input').click()}
@@ -76,8 +76,8 @@ export default function UploadZone({ onResumeUploaded }) {
               animate={dragOver ? { scale: 1.08, y: -4 } : { scale: 1, y: 0 }}
               className="mb-5"
             >
-              <div className="w-14 h-14 mx-auto rounded-2xl bg-accent-blue/10 flex items-center justify-center border border-accent-blue/15">
-                <Upload size={24} className="text-accent-blue" />
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-mm-green/10 flex items-center justify-center border border-mm-green/20">
+                <Upload size={28} className="text-mm-green" />
               </div>
             </motion.div>
 
@@ -95,7 +95,7 @@ export default function UploadZone({ onResumeUploaded }) {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="absolute inset-0 rounded-2xl bg-accent-blue/[0.03] border-2 border-dashed border-accent-blue/40 pointer-events-none"
+                className="absolute inset-0 rounded-3xl bg-mm-green/[0.03] border-2 border-dashed border-mm-green/40 pointer-events-none"
               />
             )}
           </motion.div>
@@ -105,11 +105,11 @@ export default function UploadZone({ onResumeUploaded }) {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.97 }}
-            className="glass-card p-5"
+            className="bento-card p-5"
           >
             <div className="flex items-center gap-4">
-              <div className="w-11 h-11 rounded-xl bg-accent-blue/10 flex items-center justify-center flex-shrink-0">
-                <FileText size={20} className="text-accent-blue" />
+              <div className="w-11 h-11 rounded-xl bg-mm-green/10 flex items-center justify-center flex-shrink-0">
+                <FileText size={20} className="text-mm-green" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white font-medium truncate text-sm">{file.name}</p>
@@ -117,13 +117,13 @@ export default function UploadZone({ onResumeUploaded }) {
               </div>
               <div className="flex items-center gap-2">
                 {uploading ? (
-                  <div className="flex items-center gap-2 text-accent-blue">
+                  <div className="flex items-center gap-2 text-mm-green">
                     <Loader2 size={18} className="animate-spin" />
                     <span className="text-sm">Parsing...</span>
                   </div>
                 ) : (
                   <>
-                    <CheckCircle2 size={18} className="text-accent-green" />
+                    <CheckCircle2 size={18} className="text-mm-green" />
                     <button
                       onClick={(e) => { e.stopPropagation(); clearFile() }}
                       className="p-1 rounded-lg hover:bg-white/[0.06] text-zinc-400 hover:text-white transition-colors"

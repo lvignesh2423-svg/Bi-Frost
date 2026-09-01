@@ -126,7 +126,7 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
   return (
     <div className="space-y-6">
       {/* Step indicator */}
-      <div className="glass-card p-4">
+      <div className="bento-card p-4">
         <div className="flex items-center justify-between">
           {[
             { key: 'optimize', label: 'Optimize', icon: Sparkles },
@@ -140,15 +140,15 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
             return (
               <div key={s.key} className="flex items-center gap-2">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                  isDone ? 'bg-accent-green/20 text-accent-green' :
-                  isActive ? 'bg-accent-blue/20 text-accent-blue' : 'bg-dark-800 text-gray-500'
+                  isDone ? 'bg-mm-green/20 text-mm-green' :
+                  isActive ? 'bg-mm-purple/20 text-mm-purple' : 'bg-dark-800 text-zinc-500'
                 }`}>
                   {isDone ? <CheckCircle2 size={16} /> : <Icon size={16} />}
                 </div>
-                <span className={`text-xs hidden sm:block ${isDone ? 'text-accent-green' : isActive ? 'text-accent-blue' : 'text-gray-500'}`}>
+                <span className={`text-xs hidden sm:block ${isDone ? 'text-mm-green' : isActive ? 'text-mm-purple' : 'text-zinc-500'}`}>
                   {s.label}
                 </span>
-                {i < 3 && <div className={`w-6 h-px mx-1 ${isDone ? 'bg-accent-green/30' : 'bg-white/10'}`} />}
+                {i < 3 && <div className={`w-6 h-px mx-1 ${isDone ? 'bg-mm-green/30' : 'bg-white/10'}`} />}
               </div>
             )
           })}
@@ -163,15 +163,15 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
 
       {/* Step: Optimize */}
       {step === 'optimize' && (
-        <div className="glass-card p-6">
+        <div className="bento-card p-6">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-accent-pink/10 flex items-center justify-center">
-                <FileText size={20} className="text-accent-pink" />
+              <div className="w-10 h-10 rounded-xl bg-mm-purple/10 flex items-center justify-center">
+                <FileText size={20} className="text-mm-purple" />
               </div>
               <div>
                 <h2 className="font-heading font-bold text-white">Resume Optimizer</h2>
-                <p className="text-sm text-gray-400">ATS-friendly keyword optimization for <span className="text-accent-blue">{targetJob || 'your target role'}</span></p>
+                <p className="text-sm text-zinc-400">ATS-friendly keyword optimization for <span className="text-mm-blue">{targetJob || 'your target role'}</span></p>
               </div>
             </div>
             <motion.button
@@ -186,12 +186,12 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
             </motion.button>
           </div>
           <div className="text-center py-8">
-            <FileText size={40} className="mx-auto mb-3 text-gray-600" />
-            <p className="text-sm text-gray-400">
+            <FileText size={40} className="mx-auto mb-3 text-zinc-600" />
+            <p className="text-sm text-zinc-400">
               Click "Optimize Resume" to analyze your resume and get ATS-friendly bullet point rewrites
             </p>
             {(completedSkills?.length > 0) && (
-              <p className="text-xs text-accent-green mt-2">
+              <p className="text-xs text-mm-green mt-2">
                 ✓ {completedSkills.length} completed skill{completedSkills.length !== 1 ? 's' : ''} will be included
               </p>
             )}
@@ -201,16 +201,16 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
 
       {/* Step: Review Changes */}
       {step === 'review' && rewrites.length > 0 && (
-        <div className="glass-card p-6">
+        <div className="bento-card p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="font-heading font-bold text-white">
                 {acceptedCount} of {rewrites.length} changes selected
               </h2>
-              <p className="text-sm text-gray-400">Review each optimization, then apply the ones you want</p>
+              <p className="text-sm text-zinc-400">Review each optimization, then apply the ones you want</p>
             </div>
             <div className="flex gap-2">
-              <button onClick={acceptAll} className="text-xs px-3 py-1.5 rounded-lg bg-accent-green/10 text-accent-green hover:bg-accent-green/20 transition-colors">
+              <button onClick={acceptAll} className="text-xs px-3 py-1.5 rounded-lg bg-mm-green/10 text-mm-green hover:bg-mm-green/20 transition-colors">
                 Accept All
               </button>
               <button onClick={rejectAll} className="text-xs px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-colors">
@@ -231,7 +231,7 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
                   transition={{ delay: i * 0.05 }}
                   className={`p-4 rounded-xl border transition-all ${
                     isAccepted
-                      ? 'bg-accent-green/5 border-accent-green/20'
+                      ? 'bg-mm-green/5 border-mm-green/20'
                       : 'bg-dark-800/50 border-white/5 opacity-50'
                   }`}
                 >
@@ -240,40 +240,40 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
                       onClick={() => toggleAccept(i)}
                       className={`mt-0.5 w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all ${
                         isAccepted
-                          ? 'bg-accent-green border-accent-green'
-                          : 'border-gray-500 hover:border-gray-400'
+                          ? 'bg-mm-green border-mm-green'
+                          : 'border-zinc-500 hover:border-zinc-400'
                       }`}
                     >
-                      {isAccepted && <Check size={12} className="text-white" />}
+                      {isAccepted && <Check size={12} className="text-dark-900" />}
                     </button>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-2">
-                        <p className="text-sm text-gray-400 line-through flex-1">{r.original_bullet}</p>
+                        <p className="text-sm text-zinc-400 line-through flex-1">{r.original_bullet}</p>
                         <button
                           onClick={() => setExpandedRewrite(isExpanded ? null : i)}
                           className="p-1 rounded hover:bg-white/10 transition-colors flex-shrink-0"
                         >
-                          {isExpanded ? <ChevronUp size={14} className="text-gray-400" /> : <ChevronDown size={14} className="text-gray-400" />}
+                          {isExpanded ? <ChevronUp size={14} className="text-zinc-400" /> : <ChevronDown size={14} className="text-zinc-400" />}
                         </button>
                       </div>
                       <div className="flex items-start gap-2">
-                        <Sparkles size={14} className="text-accent-green mt-0.5 flex-shrink-0" />
+                        <Sparkles size={14} className="text-mm-green mt-0.5 flex-shrink-0" />
                         <p className="text-sm text-white flex-1">{r.rewritten_bullet}</p>
                         <button
                           onClick={() => copyToClipboard(r.rewritten_bullet, i)}
                           className="p-1 rounded hover:bg-white/10 transition-colors flex-shrink-0"
                         >
                           {copied === i ? (
-                            <Check size={14} className="text-accent-green" />
+                            <Check size={14} className="text-mm-green" />
                           ) : (
-                            <Copy size={14} className="text-gray-500" />
+                            <Copy size={14} className="text-zinc-500" />
                           )}
                         </button>
                       </div>
                       {r.keywords_added && r.keywords_added.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-2">
                           {r.keywords_added.map((kw, ki) => (
-                            <span key={ki} className="text-xs px-2 py-0.5 rounded-full bg-accent-blue/10 text-accent-blue">
+                            <span key={ki} className="text-xs px-2 py-0.5 rounded-full bg-mm-blue/10 text-mm-blue">
                               +{kw}
                             </span>
                           ))}
@@ -311,11 +311,11 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
 
       {/* Step: Applied → Generate */}
       {step === 'applied' && (
-        <div className="glass-card p-6">
+        <div className="bento-card p-6">
           <div className="text-center py-6">
-            <CheckCircle2 size={48} className="mx-auto mb-4 text-accent-green" />
+            <CheckCircle2 size={48} className="mx-auto mb-4 text-mm-green" />
             <h2 className="font-heading font-bold text-white text-xl mb-2">Resume Updated!</h2>
-            <p className="text-sm text-gray-400 mb-6">
+            <p className="text-sm text-zinc-400 mb-6">
               Your resume text has been optimized with {acceptedCount} change{acceptedCount !== 1 ? 's' : ''}.
               <br />Now generate a styled HTML resume to download.
             </p>
@@ -346,7 +346,7 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
 
       {/* Step: Preview & Download */}
       {step === 'preview' && previewHtml && (
-        <div className="glass-card p-6">
+        <div className="bento-card p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-heading font-bold text-white">Your Resume</h2>
             <div className="flex gap-2">
@@ -354,7 +354,7 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setStep('optimize')}
-                className="text-sm px-4 py-2 rounded-lg bg-dark-800 text-gray-300 hover:text-white transition-colors"
+                className="text-sm px-4 py-2 rounded-lg bg-dark-800 text-zinc-300 hover:text-white transition-colors"
               >
                 ← Back
               </motion.button>
@@ -388,7 +388,7 @@ export default function ResumeRewriter({ resumeText, targetJob, completedSkills 
               Print to PDF
             </motion.button>
           </div>
-          <p className="text-xs text-gray-500 text-center mt-3">
+          <p className="text-xs text-zinc-500 text-center mt-3">
             Tip: Use "Print to PDF" in your browser's print dialog to save as PDF
           </p>
         </div>
