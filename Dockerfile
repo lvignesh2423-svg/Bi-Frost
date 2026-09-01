@@ -38,7 +38,7 @@ EXPOSE 8001
 
 # Health check (stdlib only - `requests` is not installed in this image)
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8001/api/health', timeout=5)"
+    CMD python -c "import os, urllib.request; urllib.request.urlopen('http://localhost:' + os.getenv('PORT', '8001') + '/api/health', timeout=5)"
 
-# Run the backend server
-CMD ["python", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8001"]
+# Run the backend server (port from $PORT, defaults to 8001)
+CMD ["python", "-m", "backend.main"]

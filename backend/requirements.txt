@@ -9,3 +9,4 @@ python-multipart
 aiofiles
 bcrypt
 python-jose[cryptography]
+psycopg2-binary
