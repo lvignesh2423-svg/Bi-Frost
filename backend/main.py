@@ -450,13 +450,13 @@ async def generate_resume(request: AnalyzeRequest):
     </div>
   </div>
 
-  {f'<div class="section"><h2>Experience</h2><ul>\n        {exp_html}\n      </ul></div>' if exp_html else ''}
+  {'<div class="section"><h2>Experience</h2><ul>' + exp_html + '</ul></div>' if exp_html else ''}
 
-  {f'<div class="section"><h2>Education</h2><ul>\n        {education_html}\n      </ul></div>' if education_html else ''}
+  {'<div class="section"><h2>Education</h2><ul>' + education_html + '</ul></div>' if education_html else ''}
 
-  {f'<div class="section"><h2>Certifications</h2><ul>\n        {cert_html}\n      </ul></div>' if cert_html else ''}
+  {'<div class="section"><h2>Certifications</h2><ul>' + cert_html + '</ul></div>' if cert_html else ''}
 
-  {f'<div class="footer-note">Skills highlighted in green were added through your learning path.</div>' if new_skills_set else ''}
+  {'<div class="footer-note">Skills highlighted in green were added through your learning path.</div>' if new_skills_set else ''}
 </body></html>"""
 
     return {"html": html, "skills_count": len(all_skills), "new_skills": list(new_skills_set)}
