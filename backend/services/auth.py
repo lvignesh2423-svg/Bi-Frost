@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
-from models.database import get_db
-from models.user import User
+from backend.models.database import get_db
+from backend.models.user import User
 import os
 
 SECRET_KEY = os.getenv("JWT_SECRET", "skillgap-ai-secret-key-change-in-production-2024")

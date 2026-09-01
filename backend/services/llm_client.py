@@ -5,7 +5,7 @@ import re
 
 
 client = AsyncOpenAI(
-    api_key=OPENROUTER_API_KEY,
+    api_key=OPENROUTER_API_KEY or "missing-openrouter-api-key",
     base_url=OPENROUTER_BASE_URL,
 )
 

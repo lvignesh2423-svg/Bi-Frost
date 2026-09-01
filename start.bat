@@ -6,7 +6,7 @@ echo.
 
 REM Start Backend
 echo Starting Backend (port 8001)...
-start "SkillGap Backend" cmd /k "cd /d %~dp0backend && ..\venv\Scripts\python.exe -m uvicorn main:app --host 0.0.0.0 --port 8001"
+start "SkillGap Backend" cmd /k "cd /d %~dp0 && venv\Scripts\python.exe -m uvicorn backend.main:app --host 0.0.0.0 --port 8001"
 
 REM Wait for backend
 timeout /t 3 /nobreak >nul

@@ -25,7 +25,7 @@ class AnalysisHistory(Base):
 
 
 def init_db():
-    from models.user import User, UserAnalysis
+    from backend.models.user import User, UserAnalysis
     Base.metadata.create_all(bind=engine)
 
 
