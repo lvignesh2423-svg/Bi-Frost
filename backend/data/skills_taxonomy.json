@@ -1,0 +1,71 @@
+{
+  "hard_skills": {
+    "programming_languages": [
+      "Python", "JavaScript", "TypeScript", "Java", "C++", "C#", "Go", "Rust",
+      "Ruby", "PHP", "Swift", "Kotlin", "Scala", "R", "MATLAB", "SQL", "NoSQL"
+    ],
+    "web_frameworks": [
+      "React", "Angular", "Vue.js", "Next.js", "Node.js", "Express.js", "Django",
+      "Flask", "FastAPI", "Spring Boot", "Rails", "ASP.NET", "Svelte", "Nuxt.js"
+    ],
+    "cloud_platforms": [
+      "AWS", "Azure", "GCP", "DigitalOcean", "Heroku", "Vercel", "Netlify",
+      "Cloudflare", "Linode", "Kubernetes", "Docker", "Terraform"
+    ],
+    "databases": [
+      "PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch", "DynamoDB",
+      "Cassandra", "Neo4j", "SQLite", "Firebase", "Supabase", "Cosmos DB"
+    ],
+    "data_science": [
+      "Machine Learning", "Deep Learning", "NLP", "Computer Vision", "TensorFlow",
+      "PyTorch", "Scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn",
+      "Spark", "Hadoop", "Tableau", "Power BI", "Data Engineering", "ETL",
+      "MLOps", "Feature Engineering", "A/B Testing", "Statistics"
+    ],
+    "devops_tools": [
+      "Git", "GitHub Actions", "Jenkins", "CircleCI", "Travis CI", "Ansible",
+      "Chef", "Puppet", "Prometheus", "Grafana", "ELK Stack", "Datadog",
+      "Splunk", "Nagios", "Zabbix"
+    ],
+    "mobile_development": [
+      "React Native", "Flutter", "Ionic", "Xamarin", "Swift UI", "Jetpack Compose"
+    ],
+    "ai_ml_tools": [
+      "OpenAI API", "LangChain", "Hugging Face", "MLflow", "Kubeflow",
+      "Apache Airflow", "DBT", "Snowflake", "Databricks", "Vertex AI",
+      "SageMaker", "Azure ML"
+    ],
+    "cybersecurity": [
+      "Network Security", "Penetration Testing", "SIEM", "OWASP", "Cryptography",
+      "Firewall Management", "Incident Response", "Vulnerability Assessment"
+    ],
+    "blockchain": [
+      "Solidity", "Ethereum", "Smart Contracts", "Web3.js", "Hardhat", "IPFS"
+    ],
+    "design_tools": [
+      "Figma", "Adobe XD", "Sketch", "InVision", "Photoshop", "Illustrator"
+    ],
+    "project_management": [
+      "Agile", "Scrum", "Kanban", "JIRA", "Trello", "Asana", "Confluence",
+      "Monday.com", "Notion"
+    ]
+  },
+  "soft_skills": [
+    "Communication", "Leadership", "Team Management", "Problem Solving",
+    "Critical Thinking", "Time Management", "Adaptability", "Creativity",
+    "Collaboration", "Conflict Resolution", "Public Speaking", "Negotiation",
+    "Mentoring", "Stakeholder Management", "Decision Making", "Emotional Intelligence",
+    "Presentation Skills", "Business Writing", "Cross-functional Collaboration",
+    "Strategic Thinking", "Analytical Thinking", "Attention to Detail"
+  ],
+  "certifications": [
+    "AWS Solutions Architect", "AWS Developer", "AWS SysOps",
+    "Azure Fundamentals", "Azure Developer", "Azure Architect",
+    "GCP Professional", "Google Data Engineer", "Google ML Engineer",
+    "Kubernetes CKA", "Kubernetes CKAD", "Docker DCA",
+    "PMP", "Scrum Master (CSM)", "SAFe Agilist",
+    "CISSP", "CompTIA Security+", "CEH",
+    "TensorFlow Developer", "IBM Data Science", "Salesforce Administrator",
+    "Tableau Desktop Specialist", "Snowflake SnowPro"
+  ]
+}

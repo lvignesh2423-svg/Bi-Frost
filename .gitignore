@@ -1,0 +1,31 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+.env
+.env.*
+backend/.env
+backend/*.db
+
+# Node / frontend
+node_modules/
+frontend/node_modules/
+dist/
+build/
+
+# OS/editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local nested repo clone that should not be committed here
+Bi-Frost/
