@@ -1,5 +1,5 @@
 from openai import AsyncOpenAI, APIStatusError, APIConnectionError
-from config import OPENROUTER_API_KEY, OPENROUTER_BASE_URL, LLM_MODEL
+from backend.config import OPENROUTER_API_KEY, OPENROUTER_BASE_URL, LLM_MODEL
 import json
 import re
 

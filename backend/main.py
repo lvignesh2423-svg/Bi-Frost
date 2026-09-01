@@ -8,18 +8,18 @@ import json
 import os
 import time
 
-from config import FRONTEND_DIR
-from models.schemas import (
+from backend.config import FRONTEND_DIR
+from backend.models.schemas import (
     AnalyzeRequest, ChatRequest, ChatMessage, ProgressUpdate
 )
-from models.database import init_db, get_db, AnalysisHistory
-from models.user import User, UserAnalysis
-from services.resume_parser import extract_text_from_uploaded
-from services.skill_extractor import extract_skills_from_resume
-from services.job_matcher import analyze_skill_gaps, generate_learning_path, generate_roadmap
-from services.resume_rewriter import rewrite_resume
-from services.llm_client import chat_completion, LLMError
-from services.auth import (
+from backend.models.database import init_db, get_db, AnalysisHistory
+from backend.models.user import User, UserAnalysis
+from backend.services.resume_parser import extract_text_from_uploaded
+from backend.services.skill_extractor import extract_skills_from_resume
+from backend.services.job_matcher import analyze_skill_gaps, generate_learning_path, generate_roadmap
+from backend.services.resume_rewriter import rewrite_resume
+from backend.services.llm_client import chat_completion, LLMError
+from backend.services.auth import (
     hash_password, verify_password, create_access_token,
     get_current_user, get_optional_user
 )
